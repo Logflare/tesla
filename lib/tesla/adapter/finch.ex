@@ -62,7 +62,7 @@ if Code.ensure_loaded?(Finch) do
 
       name = Keyword.fetch!(opts, :name)
       url = Tesla.build_url(env)
-      req_opts = Keyword.take(opts, [:pool_timeout, :receive_timeout])
+      req_opts = Keyword.take(opts, [:pool_timeout, :receive_timeout, :request_timeout])
       req = build(env.method, url, env.headers, env.body)
 
       case request(req, name, req_opts, opts) do
